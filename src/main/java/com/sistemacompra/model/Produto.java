@@ -1,0 +1,40 @@
+package com.sistemacompra.model;
+
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "produtos")
+public class Produto {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(nullable = false)
+    private String nome;
+
+    @Column(nullable = false)
+    private double preco;
+
+    @Column(nullable = false)
+    private int quantidade;
+
+    public Produto() {}
+
+    public Produto(String nome, double preco, int quantidade) {
+        this.nome = nome;
+        this.preco = preco;
+        this.quantidade = quantidade;
+    }
+
+    public Long getId() { return id; }
+
+    public String getNome() { return nome; }
+    public void setNome(String nome) { this.nome = nome; }
+
+    public double getPreco() { return preco; }
+    public void setPreco(double preco) { this.preco = preco; }
+
+    public int getQuantidade() { return quantidade; }
+    public void setQuantidade(int quantidade) { this.quantidade = quantidade; }
+}
